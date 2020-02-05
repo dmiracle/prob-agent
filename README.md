@@ -1,4 +1,3 @@
-# Jupyter Notebook Starter
+# Probabilistic Agent
 
-A starter project for running jupyter notebooks in a conatiner with vscode. Modified from https://github.com/Microsoft/vscode-remote-try-python.
-
+Create a simualtion of a bunch of agents. Specify distributions for specific actions, run the simulation to assign action to agents with the distribution specified.
