@@ -5,7 +5,7 @@ import uuid
 
 distributions = {
     'sex': (1, ['M', 'F']),
-    'pregnant': ([.1, .9], [True, False])
+    'pregnant': ([.15, .85], [True, False])
 }
 
 class Agent:
