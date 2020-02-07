@@ -1,5 +1,5 @@
 import random as rnd
+import uuid
 
 class Agent:
-    p = .15
-    is 
+    def __init__(self):
