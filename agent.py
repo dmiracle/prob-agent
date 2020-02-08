@@ -11,7 +11,7 @@ distributions = {
 
 class Agent:
     
-    def __init__(self, dist_file = './distributions.yml'):
+    def __init__(self, dist_file = "./distributions.yml"):
         self.props = {}
         self.uid = uuid.uuid4()
         namer = funkybob.RandomNameGenerator()
@@ -23,6 +23,10 @@ class Agent:
         with open(fname) as file:
             data = yaml.load(file, Loader=yaml.FullLoader)
         return data
+
+    def export_yaml(self, fname):
+        with open('./distributions.yml', 'w') as file:
+            documents = yaml.dump(ag.distributions, file)
 
     def rollForValue(self, k):
         dist = distributions[k]
