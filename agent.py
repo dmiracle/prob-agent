@@ -2,6 +2,7 @@ import random
 import itertools as it
 import funkybob
 import uuid
+import yaml
 
 distributions = {
     'sex': [1, ['M', 'F']],
@@ -10,13 +11,17 @@ distributions = {
 
 class Agent:
     
-    def __init__(self):
+    def __init__(self, dist_file = './distributions.yml'):
         self.props = {}
         self.uid = uuid.uuid4()
         namer = funkybob.RandomNameGenerator()
         it = iter(namer)
         self.name = next(it)
         # random.seed()
+
+    def import_yaml(fname):
+        with open(fname) as file:
+            data = yaml.load(file, Loader=yaml.FullLoader)
 
     def rollForValue(self, k):
         dist = distributions[k]
@@ -45,7 +50,7 @@ class Agent:
 
     def set_prop(self, k, v):
         self.props[k] = v
-        
+
     def add_prop(self, k):
         if k in self.props.keys():
             return "Key already exists, use recheck_prop to roll again"
