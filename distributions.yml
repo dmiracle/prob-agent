@@ -1,0 +1,9 @@
+pregnant: !!python/tuple
+- - 0.15
+  - 0.85
+- - true
+  - false
+sex: !!python/tuple
+- 1
+- - M
+  - F

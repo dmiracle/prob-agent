@@ -4,8 +4,8 @@ import funkybob
 import uuid
 
 distributions = {
-    'sex': (1, ['M', 'F']),
-    'pregnant': ([.15, .85], [True, False])
+    'sex': [1, ['M', 'F']],
+    'pregnant': [[.15, .85], [True, False]]
 }
 
 class Agent:
@@ -45,6 +45,7 @@ class Agent:
 
     def set_prop(self, k, v):
         self.props[k] = v
+        
     def add_prop(self, k):
         if k in self.props.keys():
             return "Key already exists, use recheck_prop to roll again"
