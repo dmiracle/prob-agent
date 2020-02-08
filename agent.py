@@ -19,9 +19,10 @@ class Agent:
         self.name = next(it)
         # random.seed()
 
-    def import_yaml(fname):
+    def import_yaml(self, fname):
         with open(fname) as file:
             data = yaml.load(file, Loader=yaml.FullLoader)
+        return data
 
     def rollForValue(self, k):
         dist = distributions[k]
