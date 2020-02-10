@@ -19,15 +19,7 @@ class Agent:
         self.name = next(it)
         # random.seed()
 
-    def import_yaml(self, fname):
-        with open(fname) as file:
-            data = yaml.load(file, Loader=yaml.FullLoader)
-        return data
 
-    def export_yaml(self, data, fname):
-        with open(fname, 'w') as file:
-            data_file = yaml.dump(data, file)
-        return data_file
 
     def rollForValue(self, k, dist):
         # dist = distributions[k]
