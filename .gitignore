@@ -332,5 +332,5 @@ ASALocalRun/
 *.DS_Store
 
 # User
-
+venv/
 .vscode
