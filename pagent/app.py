@@ -6,3 +6,4 @@ def run():
     print("Running . . .")
     population = Population()
     population.init_population(25, True)
+    disty = Distribution()
