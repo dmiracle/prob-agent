@@ -1,7 +1,5 @@
 import unittest
-import agent
-import distribution
-import population
+from pagent import agent, population, distribution
 
 class TestAgent(unittest.TestCase):
     

@@ -1,4 +1,4 @@
-import agent
+from pagent.agent import Agent
 
 class Population:
 
@@ -11,7 +11,7 @@ class Population:
     def init_population(self, size, printing=False):
         self.population = []
         for i in range(size):
-            x = agent.Agent()
+            x = Agent()
             if printing:
                 print(i, ": ", x.name, x.uid)
             self.population.append(x)
