@@ -19,8 +19,12 @@
 		"python.linting.enabled": true
 	},
 
-	// Specifies a command to run after the container is created
-	// "postCreateCommand": "jupyter notebook",
+	
+	// Install flask and any other dependencies
+	"postCreateCommand": "pip install -r requirements.txt",
+
+	// Comment out next line to run as root
+	"remoteUser": "vscode",
 
 	"extensions": [
 		"ms-python.python"
