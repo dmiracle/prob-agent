@@ -11,7 +11,7 @@ distributions = {
 
 class Agent:
     
-    def __init__(self, dist_file = "./distributions.yml"):
+    def __init__(self, dist_file = "../distributions.yml"):
         self.props = {}
         self.uid = uuid.uuid4()
         namer = funkybob.RandomNameGenerator()

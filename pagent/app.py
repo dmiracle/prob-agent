@@ -1,10 +1,9 @@
-from pagent import agent
+from pagent.agent import Agent
+from pagent.population import Population
+from pagent.distribution import Distribution
 
 def run():
-    print("Running")
-    agent_count = 100
-    agents = []
-    for i in range(agent_count):
-        x = agent.Agent()
-        print(i, ": ", x.name, x.uid)
-        agents.append(x)
+    print("Running . . .")
+    population = Population()
+    population.init_population(25, True)
+    disty = Distribution()
