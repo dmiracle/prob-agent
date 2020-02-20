@@ -8,6 +8,10 @@ class Distribution:
         'sex': [1, ['M', 'F']],
         'pregnant': [[.15, .85], [True, False]]
     }
+
+    def __init__(self, dist_file = "distributions.yml"):
+        self.fname = dist_file
+
     def import_yaml(self, fname):
         with open(fname) as file:
             data = yaml.load(file, Loader=yaml.FullLoader)
