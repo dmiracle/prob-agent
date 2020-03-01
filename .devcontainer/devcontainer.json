@@ -1,30 +1,30 @@
 {
-	"name": "Python Simulator",
+	"name": "Jupyter Starter",
+	"context": "..",
 	"dockerFile": "Dockerfile",
 
 	// Specifies a list of ports that should be published from the container.
-	"appPort": [8888],
-
-	// Comment out the next line to run as root instead. Linux users, 
-	// update Dockerfile with your user's UID/GID if not 1000.
-	"runArgs": ["-u", "vscode"],
+	// "appPort": [38888],
 
 	// Use 'settings' to set *default* container specific settings.json values on container create. 
 	// You can edit these settings after create using File > Preferences > Settings > Remote.
 	"settings": { 
 		"terminal.integrated.shell.linux": "/bin/bash",
 		"python.pythonPath": "/usr/local/bin/python",
+		"python.linting.enabled": true,
 		"python.linting.pylintEnabled": true,
-		"python.linting.pylintPath": "/usr/local/bin/pylint",
-		"python.linting.enabled": true
+		"python.linting.pylintPath": "/usr/local/share/pip-global/bin/pylint"
 	},
 
-	
-	// Install flask and any other dependencies
+	// Specifies a command to run after the container is created
+	// "postCreateCommand": "jupyter notebook",
+		
+	// Install dependencies
 	"postCreateCommand": "pip install -r requirements.txt",
 
 	// Comment out next line to run as root
 	"remoteUser": "vscode",
+
 
 	"extensions": [
 		"ms-python.python"
