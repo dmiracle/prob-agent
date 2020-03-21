@@ -1,3 +1,4 @@
+import pathbs
 import unittest
 from pagent import agent, population, distribution
 
@@ -12,7 +13,7 @@ class TestAgent(unittest.TestCase):
 class TestPopulation(unittest.TestCase):
     test_population = population.Population()
 
-    def test_population_list(self):
+    def test_population_list(self): 
         self.assertTrue(self.test_population.population == [])
 
 class TestDistribution(unittest.TestCase):

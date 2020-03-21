@@ -41,3 +41,6 @@ class Distribution:
                     return res, randRoll
         else:
             return Exception
+    
+    def fiftyfifty(self):
+        return random.choice([True, False])

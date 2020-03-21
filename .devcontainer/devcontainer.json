@@ -10,7 +10,7 @@
 	// You can edit these settings after create using File > Preferences > Settings > Remote.
 	"settings": { 
 		"terminal.integrated.shell.linux": "/bin/bash",
-		"python.pythonPath": "/usr/local/bin/python",
+		"python.pythonPath": "/usr/local/bin/python:${workspaceRoot}",
 		"python.linting.enabled": true,
 		"python.linting.pylintEnabled": true,
 		"python.linting.pylintPath": "/usr/local/share/pip-global/bin/pylint"
