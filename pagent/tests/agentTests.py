@@ -13,5 +13,9 @@ class TestAgent(unittest.TestCase):
         self.assertTrue(self.test_agent.name)
         self.assertTrue(self.test_agent.uid)
 
+    def test_init_props(self):
+        self.test_agent.init_props()
+        self.assertTrue(self.test_agent.props)
+
 if __name__ == '__main__':
     unittest.main()
