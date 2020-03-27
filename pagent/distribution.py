@@ -1,14 +1,19 @@
 import random
 import yaml
-
+import numpy
+from scipy.interpolate import interp1d
+from math import floor
 
 class Distribution:
 
     distributions = {
         'sex': [1, ['M', 'F']],
         'pregnant': [[.15, .85], [True, False]],
-        'normal': ["normal", 0, 0.2]
+        'normal': ["normal", 0, 0.2],
+        'age' : ["interpolate", [(0, 1), (100, 0)]] 
     }
+
+    distribution_arrays = {}
 
     def __init__(self, dist_file = "distributions.yml"):
         self.fname = dist_file
@@ -38,6 +43,8 @@ class Distribution:
         #  
         if dist[0] == "normal":
             return random.normalvariate(dist[1], dist[2])
+        elif dist[0] == "interpolate":
+            return self.interpolate_dist(dist[1])
         elif dist[0] == 1:
             return random.choice(dist[1])
         elif len(dist[0]) == len(dist[1]):
@@ -53,3 +60,24 @@ class Distribution:
     
     def fiftyfifty(self):
         return random.choice([True, False])
+
+    def interpolate_dist(self, points):
+        try:
+            p = self.distribution_arrays[tuple(points)]
+        except KeyError: 
+            start = points[0]
+            stop = points[-1]
+            numpy.linspace(start[0], stop[0], 1000)
+            x, y = list(zip(*points))
+            f = interp1d(x, y, fill_value="extrapolate")
+            xx = numpy.linspace(0, 100, 10000, endpoint=True)
+            p = []
+            a = .001
+            m = sum(xx)/len(xx)
+            for xxx in xx:
+                xxx = xxx + (random.random() * m/100)
+                i = floor(f(xxx)/a)
+                for j in range(i):
+                    p.append(xxx)
+            self.distribution_arrays.update( {tuple(points) : p})
+        return random.choice(p)

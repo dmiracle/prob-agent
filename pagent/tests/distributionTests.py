@@ -13,6 +13,11 @@ class TestDistribution(unittest.TestCase):
             roll = self.test_distribuition.rollForValue(dist)
             print(roll)
             self.assertTrue(roll)
+        for key, dist in self.test_distribuition.distributions.items():
+            print({key : dist})
+            roll = self.test_distribuition.rollForValue(dist)
+            print(roll)
+            self.assertTrue(roll)
 
 if __name__ == '__main__':
     unittest.main()
