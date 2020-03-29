@@ -70,9 +70,9 @@ class Distribution:
             numpy.linspace(start[0], stop[0], 1000)
             x, y = list(zip(*points))
             f = interp1d(x, y, fill_value="extrapolate")
-            xx = numpy.linspace(0, 100, 10000, endpoint=True)
+            xx = numpy.linspace(0, 100, 1000, endpoint=True)
             p = []
-            a = .001
+            a = .01
             m = sum(xx)/len(xx)
             for xxx in xx:
                 xxx = xxx + (random.random() * m/100)
