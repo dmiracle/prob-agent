@@ -8,10 +8,12 @@ class Population:
     def get_population(self):
         return self.population
 
-    def init_population(self, size, printing=False):
+    def init_population(self, size, printing=False, roll=True):
         self.population = []
         for i in range(size):
             x = Agent()
+            if roll:
+                x.init_props
             if printing:
                 print(i, ": ", x.name, x.uid)
             self.population.append(x)
@@ -32,3 +34,8 @@ class Population:
     def howMany(self, key, value):
         return len([1 for a in self.population if a.props[key] == value ])
 
+    def as_dict_list(self):
+        d = []
+        for a in self.population:
+            d.append(a.as_dict())
+        return d

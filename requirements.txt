@@ -5,3 +5,5 @@ notebook
 funkybob
 pyyaml
 flask
+flask-restful
+jsonpickle

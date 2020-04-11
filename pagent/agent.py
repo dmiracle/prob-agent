@@ -22,4 +22,8 @@ class Agent:
     def set_prop(self, k, v):
         self.props[k] = v
 
-
+    def as_dict(self):
+        d = self.props
+        d['Name'] = self.name
+        d['UID'] = self.uid
+        return d

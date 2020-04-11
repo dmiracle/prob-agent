@@ -1,13 +1,18 @@
 from pagent.agent import Agent
+from pagent.population import Population
 from flask import Flask
+from flask_restful import Resource, Api
 from flask import jsonify
-import json
+import jsonpickle
 
 app = Flask(__name__)
+api = Api(app)
 
+app_population = Population()
+app_population.init_population(25)
 app_agent = Agent()
 app_agent.init_props()
-dist_json = json.dumps(app_agent.dist.distributions)
+
 
 @app.route("/")
 def hello():
@@ -21,6 +26,10 @@ def distro():
 def props():
     app_agent = Agent()
     app_agent.init_props()
-    app_agent.props['Name'] = app_agent.name
-    app_agent.props['UUID'] = app_agent.uid
-    return jsonify(app_agent.props)
+    return jsonify(app_agent.as_dict())
+
+class RestEndpoint(Resource):
+    def get(self):
+        return jsonify(app_population.as_dict_list())
+
+api.add_resource(RestEndpoint, '/pop')
