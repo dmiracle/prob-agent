@@ -20,8 +20,8 @@ class Distribution:
 
     def rollAll(self):
         props = {}
-        for k in self.distributions:
-            props.update({k : self.rollForValue(k)})
+        for k, v in self.distributions.items():
+            props.update({k : self.rollForValue(v)})
         return props
 
     def import_yaml(self, fname):
