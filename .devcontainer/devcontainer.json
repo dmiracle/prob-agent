@@ -1,10 +1,10 @@
 {
-	"name": "Jupyter Starter",
+	"name": "Probabalistic Agent",
 	"context": "..",
 	"dockerFile": "Dockerfile",
 
 	// Specifies a list of ports that should be published from the container.
-	// "appPort": [38888],
+	"appPort": [3888],
 
 	// Use 'settings' to set *default* container specific settings.json values on container create. 
 	// You can edit these settings after create using File > Preferences > Settings > Remote.
