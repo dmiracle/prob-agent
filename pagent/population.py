@@ -13,7 +13,7 @@ class Population:
         for i in range(size):
             x = Agent()
             if roll:
-                x.init_props
+                x.init_props()
             if printing:
                 print(i, ": ", x.name, x.uid)
             self.population.append(x)
