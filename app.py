@@ -30,6 +30,6 @@ def props():
 
 class RestEndpoint(Resource):
     def get(self):
-        return jsonify(app_population.as_dict_list())
+        return jsonify(app_population.as_dict())
 
 api.add_resource(RestEndpoint, '/pop')

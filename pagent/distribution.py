@@ -51,7 +51,6 @@ class Distribution:
             randRoll = random.random()
             running_total = 0 
             for top, res in zip(dist[0], dist[1]):
-                print(top, res)
                 running_total += top
                 if randRoll < running_total:
                     return res, randRoll
