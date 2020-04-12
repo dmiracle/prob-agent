@@ -49,9 +49,7 @@ class Distribution:
         #   1 -- choose uniform
         #   [a1, a2, . . .] prob of [b1, b2, . . .]
         #  
-        print("Type of thing:" + str(type(dist)))
         if isinstance(dist, dict):
-            print("This is the distribution: " + str(dist))
             return self.rollAll(dist)
         elif dist[0] == "normal":
             return random.normalvariate(dist[1], dist[2])
