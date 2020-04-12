@@ -18,6 +18,7 @@ class TestDistribution(unittest.TestCase):
             roll = self.test_distribuition.rollForValue(dist)
             print(roll)
             self.assertTrue(roll)
+        
 
 if __name__ == '__main__':
     unittest.main()

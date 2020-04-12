@@ -49,8 +49,13 @@ class Distribution:
         #   1 -- choose uniform
         #   [a1, a2, . . .] prob of [b1, b2, . . .]
         #  
-        if isinstance(dist, 'dict'):
-            return 'dict'
+        print("Type of thing:" + str(type(dist)))
+        if isinstance(dist, dict):
+            print("This is the distribution: " + str(dist))
+            for k in dist:
+                for j in dist[k]:
+                    self.rollForValue(dist[k])
+            return True
         elif dist[0] == "normal":
             return random.normalvariate(dist[1], dist[2])
         elif dist[0] == "interpolate":
@@ -94,7 +99,7 @@ class Distribution:
             for xxx in xx:
                 xxx = xxx + (random.random() * m/100)
                 i = floor(f(xxx)/a)
-                for j in range(i):
+                for _ in range(i):
                     p.append(xxx)
             self.distribution_arrays.update( {tuple(points) : p})
         return random.choice(p)
