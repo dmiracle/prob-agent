@@ -24,6 +24,6 @@ class Agent:
 
     def as_dict(self):
         d = self.props
-        d['Name'] = self.name
-        d['UID'] = self.uid
+        d['name'] = self.name
+        d['uid'] = self.uid
         return d
