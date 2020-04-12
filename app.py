@@ -30,6 +30,10 @@ def props():
 
 class RestEndpoint(Resource):
     def get(self):
+        app_population = Population()
+        app_population.init_population(25)
+        app_agent = Agent()
+        app_agent.init_props() 
         return jsonify(app_population.as_dict())
 
 api.add_resource(RestEndpoint, '/pop')
