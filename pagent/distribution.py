@@ -10,7 +10,13 @@ class Distribution:
         'sex': [1, ['M', 'F']],
         # 'pregnant': [[.15, .85], [True, False]],
         'normal': ["normal", 0, 0.2],
-        'age' : ["interpolate", [(0, 1), (100, 0)]] 
+        'age' : ["interpolate", [(0, 1), (100, 0)]],
+        'str' : ["dice", (3, 6)],
+        'dex' : ["dice", (3, 6)],
+        'con' : ["dice", (3, 6)],
+        'int' : ["dice", (3, 6)],
+        'wis' : ["dice", (3, 6)],
+        'cha' : ["dice", (3, 6)] 
     }
 
     distribution_arrays = {}
@@ -45,6 +51,8 @@ class Distribution:
             return random.normalvariate(dist[1], dist[2])
         elif dist[0] == "interpolate":
             return self.interpolate_dist(dist[1])
+        elif dist[0] == "dice":
+            return self.dice(dist[1])
         elif dist[0] == 1:
             return random.choice(dist[1])
         elif len(dist[0]) == len(dist[1]):
@@ -59,6 +67,12 @@ class Distribution:
     
     def fiftyfifty(self):
         return random.choice([True, False])
+
+    def dice(self, d):
+        x = 0
+        for _ in range(d[0]):
+            x += random.randint(1,d[1])
+        return x
 
     def interpolate_dist(self, points):
         try:
