@@ -11,12 +11,14 @@ class Distribution:
         # 'pregnant': [[.15, .85], [True, False]],
         'normal': ["normal", 0, 0.2],
         'age' : ["interpolate", [(0, 1), (100, 0)]],
-        'str' : ["dice", (3, 6)],
-        'dex' : ["dice", (3, 6)],
-        'con' : ["dice", (3, 6)],
-        'int' : ["dice", (3, 6)],
-        'wis' : ["dice", (3, 6)],
-        'cha' : ["dice", (3, 6)] 
+        'dndstats' : {
+            'str' : ["dice", (3, 6)],
+            'dex' : ["dice", (3, 6)],
+            'con' : ["dice", (3, 6)],
+            'int' : ["dice", (3, 6)],
+            'wis' : ["dice", (3, 6)],
+            'cha' : ["dice", (3, 6)] 
+        }
     }
 
     distribution_arrays = {}
@@ -47,7 +49,9 @@ class Distribution:
         #   1 -- choose uniform
         #   [a1, a2, . . .] prob of [b1, b2, . . .]
         #  
-        if dist[0] == "normal":
+        if isinstance(dist, 'dict'):
+            return 'dict'
+        elif dist[0] == "normal":
             return random.normalvariate(dist[1], dist[2])
         elif dist[0] == "interpolate":
             return self.interpolate_dist(dist[1])
