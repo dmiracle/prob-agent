@@ -8,7 +8,7 @@ class Distribution:
 
     distributions = {
         'sex': [1, ['M', 'F']],
-        'pregnant': [[.15, .85], [True, False]],
+        # 'pregnant': [[.15, .85], [True, False]],
         'normal': ["normal", 0, 0.2],
         'age' : ["interpolate", [(0, 1), (100, 0)]] 
     }

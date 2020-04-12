@@ -10,9 +10,9 @@ class Agent:
     def __init__(self):
         self.props = {}
         self.uid = uuid.uuid4()
-        namer = funkybob.RandomNameGenerator()
+        namer = funkybob.RandomNameGenerator(separator=' ')
         it = iter(namer)
-        self.name = next(it)
+        self.name = next(it).title()
         self.dist = Distribution()
     
     def init_props(self):
