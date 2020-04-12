@@ -26,9 +26,9 @@ class Distribution:
     def __init__(self, dist_file = "distributions.yml"):
         self.fname = dist_file
 
-    def rollAll(self):
+    def rollAll(self, dist):
         props = {}
-        for k, v in self.distributions.items():
+        for k, v in dist.items():
             props.update({k : self.rollForValue(v)})
         return props
 
@@ -52,10 +52,7 @@ class Distribution:
         print("Type of thing:" + str(type(dist)))
         if isinstance(dist, dict):
             print("This is the distribution: " + str(dist))
-            for k in dist:
-                for j in dist[k]:
-                    self.rollForValue(dist[k])
-            return True
+            return self.rollAll(dist)
         elif dist[0] == "normal":
             return random.normalvariate(dist[1], dist[2])
         elif dist[0] == "interpolate":

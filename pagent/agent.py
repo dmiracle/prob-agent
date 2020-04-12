@@ -16,7 +16,7 @@ class Agent:
         self.dist = Distribution()
     
     def init_props(self):
-        self.props = self.dist.rollAll()
+        self.props = self.dist.rollAll(self.dist.distributions)
 
 
     def set_prop(self, k, v):
