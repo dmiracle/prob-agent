@@ -1,6 +1,9 @@
 from pagent.agent import Agent
 
 class Population:
+    ''' 
+    Population is a list of agents found at Population.population
+    '''
 
     def __init__(self):
         self.population = []
