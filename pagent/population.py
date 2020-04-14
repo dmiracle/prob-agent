@@ -37,6 +37,9 @@ class Population:
     def howMany(self, key, value):
         return len([1 for a in self.population if a.props[key] == value ])
 
+    def slice_pop(self):
+        return True
+
     def as_dict(self):
         d = {}
         p = []
