@@ -9,5 +9,8 @@ class TestPopulation(unittest.TestCase):
     def test_population_list(self): 
         self.assertTrue(self.test_population.population)
 
+    def test_slice_pop(self):
+        self.assertTrue(self.test_population.slice_pop)
+
 if __name__ == '__main__':
     unittest.main()
