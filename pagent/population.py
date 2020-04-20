@@ -38,6 +38,8 @@ class Population:
         return len([1 for a in self.population if a.props[key] == value ])
 
     def slice_pop(self, key):
+        # Return N length list of each value for given key
+        # list_of_values = slice_pop(key)
         l = []
         for a in self.population:
             l.append(a.as_dict()[key])
