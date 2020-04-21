@@ -1,6 +1,9 @@
 from pagent.agent import Agent
 
 class Population:
+    ''' 
+    Population is a list of agents found at Population.population
+    '''
 
     def __init__(self):
         self.population = []
@@ -23,16 +26,24 @@ class Population:
         # Ex: True to False, specify False
         inc = 0 
         res = []
-        while self.howMany(key, val) > 0:
+        while self.how_many(key, val) > 0:
             for a in self.population:
                 if a.props[key] == val:
                     a.recheck_prop(key)
-            res.append([inc, self.howMany(key, val)])
+            res.append([inc, self.how_many(key, val)])
             inc += 1
         return res
 
-    def howMany(self, key, value):
+    def how_many(self, key, value):
         return len([1 for a in self.population if a.props[key] == value ])
+
+    def slice_pop(self, key):
+        # Return N length list of each value for given key
+        # list_of_values = slice_pop(key)
+        l = []
+        for a in self.population:
+            l.append(a.as_dict()[key])
+        return l
 
     def as_dict(self):
         d = {}
