@@ -5,7 +5,7 @@ from scipy.interpolate import interp1d
 from math import floor
 
 class Distribution:
-
+'''
     distributions = {
         'sex': [1, ['M', 'F']],
         # 'pregnant': [[.15, .85], [True, False]],
@@ -20,7 +20,8 @@ class Distribution:
             'cha' : ["dice", (3, 6)] 
         }
     }
-
+'''
+    distributions = {}
     distribution_arrays = {}
 
     def __init__(self, dist_file = "distributions.yml"):
