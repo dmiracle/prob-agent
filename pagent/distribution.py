@@ -3,26 +3,11 @@ import yaml
 import numpy
 from scipy.interpolate import interp1d
 from math import floor
+from . import sampleDistributions
 
 class Distribution:
-'''
-    distributions = {
-        'sex': [1, ['M', 'F']],
-        # 'pregnant': [[.15, .85], [True, False]],
-        'normal': ["normal", 0, 0.2],
-        'age' : ["interpolate", [(0, 1), (100, 0)]],
-        'dndstats' : {
-            'str' : ["dice", (3, 6)],
-            'dex' : ["dice", (3, 6)],
-            'con' : ["dice", (3, 6)],
-            'int' : ["dice", (3, 6)],
-            'wis' : ["dice", (3, 6)],
-            'cha' : ["dice", (3, 6)] 
-        }
-    }
-'''
+
     distributions = {}
-    distribution_arrays = {}
 
     def __init__(self, dist_file = "distributions.yml"):
         self.fname = dist_file
@@ -79,6 +64,7 @@ class Distribution:
             x += random.randint(1,d[1])
         return x
 
+    distribution_arrays = {}
     def interpolate_dist(self, points):
         try:
             p = self.distribution_arrays[tuple(points)]
