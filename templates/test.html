@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dropdown</title>
+</head>
+<body>
+<form name=name action="results.html" method='POST'>
+    <select name= name method="GET" action="/">
+        {% for name in names %}
+        <option value= "{{name}}" SELECTED>{{name}}</option>"
+        {% endfor %}
+    </select>
+
+    <button type="submit">Compare!</button>
+</form>
+
+</select>
+</body>
+</html>

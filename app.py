@@ -29,6 +29,11 @@ def props():
     app_agent.init_props()
     return jsonify(app_agent.as_dict())
 
+@app.route("/drops")
+def dropdown():
+    names = ['Wi', 'Drew', 'Kevin', 'Bob']
+    return render_template('test.html', names=names)
+
 class RestEndpoint(Resource):
     def get(self):
         app_population = Population()
