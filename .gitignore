@@ -334,3 +334,5 @@ ASALocalRun/
 # User
 venv/
 .vscode
+
+*.egg-info/

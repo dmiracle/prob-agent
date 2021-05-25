@@ -4,7 +4,7 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="pagent-dmiracle", # Replace with your own username
+    name="pagent", # Replace with your own username
     version="0.0.1",
     author="Dylan Miracle",
     author_email="dylan.miracle@gmail.com",
